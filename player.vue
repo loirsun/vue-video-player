@@ -77,6 +77,16 @@
         var language = videoOptions.language
         videojs.addLanguage(language, languages[language])
 
+        videojs.MediaTechController.prototype.onTap = function(){
+            if (this.player().controls()) {
+                if (this.player().paused()) {
+                    this.player().play();
+                } else {
+                    this.player().pause();
+                }
+            }
+        };
+
         // ios fullscreen
         var playsinline = videoOptions.playsinline
         if (playsinline) {
